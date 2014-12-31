@@ -34,8 +34,8 @@ namespace EventStore.Core.Services.Transport.Http.Controllers
             Register(service, "/subscriptions/{stream}/{subscription}", HttpMethod.Post, PostSubscription, DefaultCodecs, DefaultCodecs);
             RegisterUrlBased(service, "/subscriptions/{stream}/{subscription}", HttpMethod.Delete, DeleteSubscription);
             RegisterUrlBased(service, "/subscriptions/{stream}/{subscription}/replayParked", HttpMethod.Post, ReplayParkedMessages);
-            Register(service, "/subscriptions/{stream}/{subscription}?c={count}", HttpMethod.Get, GetNextNMessages, Codec.NoCodecs, DefaultCodecs);
-        }
+            Register(service, "/subscriptions/{stream}/{subscription}?count={count}", HttpMethod.Get, GetNextNMessages, Codec.NoCodecs, DefaultCodecs);
+            }
 
 
         private void GetNextNMessages(HttpEntityManager http, UriTemplateMatch match)
@@ -335,12 +335,7 @@ namespace EventStore.Core.Services.Transport.Http.Controllers
                     LiveBufferCount = stat.LiveBufferCount,
                     RetryBufferCount = stat.RetryBufferCount,
                     ParkedMessageUri = MakeUrl(manager, string.Format("/streams/$persistentsubscription-{0}::{1}-parked", stat.EventStreamId, stat.GroupName)),
-<<<<<<< Updated upstream
                     Config = new SubscriptionConfigData()
-=======
-                    GetMessagesUri = MakeUrl(manager, string.Format("/streams/{0}/{1}/messages", stat.EventStreamId, stat.GroupName)),
-                    Config = new SubscriptionConfigData
->>>>>>> Stashed changes
                     {
                         CheckPointAfterMilliseconds = stat.CheckPointAfterMilliseconds,
                         BufferSize = stat.BufferSize,
@@ -396,13 +391,7 @@ namespace EventStore.Core.Services.Transport.Http.Controllers
                     TotalItemsProcessed = stat.TotalItems,
                     LastKnownEventNumber = stat.LastProcessedEventNumber,
                     LastProcessedEventNumber = stat.LastProcessedEventNumber,
-<<<<<<< Updated upstream
                     ParkedMessageUri = MakeUrl(manager, string.Format("/streams/$persistentsubscription-{0}::{1}-parked", stat.EventStreamId, stat.GroupName))
-=======
-                    ParkedMessageUri = MakeUrl(manager, string.Format("/streams/$persistentsubscription-{0}::{1}-parked", stat.EventStreamId, stat.GroupName)),
-                    GetMessagesUri = MakeUrl(manager, string.Format("/streams/{0}/{1}/messages", stat.EventStreamId, stat.GroupName)),
-                    TotalInFlightMessages = stat.TotalInFlightMessages,
->>>>>>> Stashed changes
                 };
                 if (stat.Connections != null)
                 {
