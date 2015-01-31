@@ -21,5 +21,9 @@
 
         public const string EventsJson = "application/vnd.eventstore.events+json";
         public const string EventsXml = "application/vnd.eventstore.events+xml";
+
+        public const string PersistentJson = "application/vnd.eventstore.Persistent+json";
+        public const string PersistentXml = "application/vnd.eventstore.Persistent+xml";
+
     }
 }

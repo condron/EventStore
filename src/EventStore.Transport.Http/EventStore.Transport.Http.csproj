@@ -66,6 +66,10 @@
     <Compile Include="ContentType.cs" />
     <Compile Include="HttpMethod.cs" />
     <Compile Include="ICodec.cs" />
+    <Compile Include="PersistentSubscription\PersistentExceptions.cs" />
+    <Compile Include="PersistentSubscription\PersistentSpecs.cs" />
+    <Compile Include="PersistentSubscription\PersistentElement.cs" />
+    <Compile Include="PersistentSubscription\PersistentDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HttpStatusCode.cs" />
     <Compile Include="ProxyHeaders.cs" />
